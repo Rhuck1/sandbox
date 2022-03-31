@@ -1,3 +1,5 @@
+from player import HumanPlayer, RandomComputerPlayer
+
 class TicTacToe:
     
     def __init__(self):
@@ -39,6 +41,7 @@ class TicTacToe:
     def make_move(self, square, letter):
         # if valid move, then make the move (assign square to letter)
         # then return true. if invalid, return false
+        
         if self.board[square] == ' ':
             self.board[square] = letter
             
@@ -46,31 +49,39 @@ class TicTacToe:
                 self.current_winner = letter
                 
             return True
+        
         return False
     
-    def winner(self, winner):
+    def winner(self, square, letter):
         # winner if 3 in a row anywhere...we have to check all of these!
+        
         # first let's check the row
-        row_in = square // 3
+        row_ind = square // 3
         row = self.board[row_ind * 3: (row_ind + 1) * 3]
         if all([spot == letter for spot in row]):
+            
             return True
         
         # check column
-        col_in = square % 3
+        col_ind = square % 3
         column = [self.board[col_ind + i * 3] for i in range(3)]
         if all([spot == letter for spot in column]):
+            
             return True
         
         # check diagonals
         # but only if the square is an even number (0, 2, 4, 6, 8)
         # these are the only moves possible to win a diagonal
         if square % 2 == 0:
+            
             diagonal1 = [self.board[i] for i in [0, 4, 8]] # left to right diagonal
             if all([spot == letter for spot in diagonal1]):
+                
                 return True
+            
             diagonal2 = [self.board[i] for i in [2, 4, 6]] # right to left diagonal
             if all([spot == letter for spot in diagonal2]):
+                
                 return True
         
         # if all these checks fail
@@ -78,8 +89,7 @@ class TicTacToe:
 
 def play(game, x_player, o_player, print_game=True):
     # returns the winner of the game(the letter)! or None for a tie
-    
-        
+            
     if print_game:
         game.print_board_nums()
 
@@ -88,6 +98,7 @@ def play(game, x_player, o_player, print_game=True):
     # (we don't have to worry about winner because we'll just return that which breaks the loop)
     
     while game.empty_squares():
+        
         # get the move from the appropriate player
         if letter == 'O':
             square = o_player.get_move(game)
@@ -116,7 +127,12 @@ def play(game, x_player, o_player, print_game=True):
 #           else:
 #               letter = 'X'
 
-        if print_game:
-            print('It\'s a tie!')
+    if print_game:
+        print('It\'s a tie!')
             
-if 
+if __name__ == '__main__':
+    
+    x_player  = HumanPlayer('X')
+    o_player = RandomComputerPlayer('O')
+    t = TicTacToe()
+    play(t, x_player, o_player, print_game=True)

@@ -2,7 +2,7 @@ import math
 import random
 
 
-Class Player:
+class Player:
     
     def __init__(self, letter):
         # letter is x or o
@@ -12,7 +12,7 @@ Class Player:
     def get_move(self, game):
         pass
     
-Class RandomComputerPlayer(Player):
+class RandomComputerPlayer(Player):
     
     def __init__(self, letter):
         
@@ -25,7 +25,7 @@ Class RandomComputerPlayer(Player):
         return square
     
     
-Class HumanPlayer(Player):
+class HumanPlayer(Player):
     
     def __init__(self, letter):
         

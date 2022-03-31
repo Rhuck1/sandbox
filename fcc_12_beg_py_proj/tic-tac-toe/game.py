@@ -1,3 +1,4 @@
+import time
 from player import HumanPlayer, RandomComputerPlayer
 
 class TicTacToe:
@@ -52,18 +53,18 @@ class TicTacToe:
         
         return False
     
-    def winner(self, winner):
+    def winner(self, square, letter):
         # winner if 3 in a row anywhere...we have to check all of these!
         
         # first let's check the row
-        row_in = square // 3
+        row_ind = square // 3
         row = self.board[row_ind * 3: (row_ind + 1) * 3]
         if all([spot == letter for spot in row]):
             
             return True
         
         # check column
-        col_in = square % 3
+        col_ind = square % 3
         column = [self.board[col_ind + i * 3] for i in range(3)]
         if all([spot == letter for spot in column]):
             
@@ -127,8 +128,11 @@ def play(game, x_player, o_player, print_game=True):
 #           else:
 #               letter = 'X'
 
-        if print_game:
-            print('It\'s a tie!')
+        # tiny break to make things a little easier to read
+        time.sleep(0.8)    
+
+    if print_game:
+        print('It\'s a tie!')
             
 if __name__ == '__main__':
     
