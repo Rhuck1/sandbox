@@ -72,6 +72,9 @@ class TicTacToe:
             diagonal2 = [self.board[i] for i in [2, 4, 6]] # right to left diagonal
             if all([spot == letter for spot in diagonal2]):
                 return True
+        
+        # if all these checks fail
+        return False
 
 def play(game, x_player, o_player, print_game=True):
     # returns the winner of the game(the letter)! or None for a tie
@@ -115,3 +118,5 @@ def play(game, x_player, o_player, print_game=True):
 
         if print_game:
             print('It\'s a tie!')
+            
+if 
