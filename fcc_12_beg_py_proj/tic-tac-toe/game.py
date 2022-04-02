@@ -118,7 +118,7 @@ def play(game, x_player, o_player, print_game=True):
             if game.current_winner:
                 
                 if print_game:
-                    print(letter + 'wins!')
+                    print(letter + ' wins!')
                 return letter
             
             #after we made our move, we need to alternate letters
