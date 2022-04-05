@@ -52,4 +52,14 @@ class HumanPlayer(Player):
                 
         return val
     
-    
+class GeniusComputerPlayer(Player):
+
+    def __init__(self, letter):
+        super().__init__(letter)    
+
+    def get_move(self, game):
+        
+        if len(game.available_moves()) == 9:
+            square = random.choice(game.available_moves()) # randomly choose one
+        else:
+            
