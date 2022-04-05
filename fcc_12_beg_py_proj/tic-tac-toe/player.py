@@ -79,7 +79,7 @@ class GeniusComputerPlayer(Player):
         if state.current_winner == other_player:
             # we shoudle return position AND score because we need to keep track of the score for minimax to work
             return {'position': None,
-                    'score': 1 * (state.num_empty_square() + 1) if other other_player == max_player else -1 * (state.num_empty_squares() + 1)
+                    'score': 1 * (state.num_empty_square() + 1) if other_player == max_player else -1 * (state.num_empty_squares() + 1)
                     }
 
         elif not state.empty_squares(): # no empty squares
