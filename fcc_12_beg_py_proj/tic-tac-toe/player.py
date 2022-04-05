@@ -64,7 +64,7 @@ class GeniusComputerPlayer(Player):
 
         else:
             # get the square based off the minimax algorithm
-            square = self.minimax(game, self.letter)
+            square = self.minimax(game, self.letter)['position']
         
         return square
 
