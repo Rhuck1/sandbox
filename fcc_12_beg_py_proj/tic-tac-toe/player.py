@@ -55,7 +55,7 @@ class HumanPlayer(Player):
 class GeniusComputerPlayer(Player):
 
     def __init__(self, letter):
-        super().__init__(letter)    
+        super().__init__(letter)
 
     def get_move(self, game):
         
@@ -70,7 +70,7 @@ class GeniusComputerPlayer(Player):
 
     def minimax(self, state, player):
 
-        max_player = self.letter
+        max_player = self.letter # yourself
         other_player = 'O' if player == 'X' else 'X' # the other player...so whatever letter is NOT
 
         # first, we want to check if the previous move is a winner
